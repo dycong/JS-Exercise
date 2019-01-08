@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 对象:是一种无序的属性名和属性值的集合
+			 * json对象,也是一种数据,用于网站的前后台交互
+			 * 标准写法:json数据的属性名用和字符串类型的数据都用双引号
+			 * 在前后台交互的时候,虽然数据的格式是json,但要用字符串的形式传递
+			 * JSON.parse(字符串数据):将字符串转换成json数据
+			 * JSON.stringify(json数据):将json数据转换成字符串类型数据
+			 */
+			var p = {
+				name:'陶喆',
+				age:45
+			}
+//			var json = {name:'陶喆',age:45};
+			var json = '{"name":"陶喆","age":45,"gender":true}';
+//			console.log(json.name);
+			var j = JSON.parse(json);
+			console.log(j);
+			console.log(JSON.stringify(j));
+			
+			var t = [1,'哈哈',true];
+//			for (var i = 0; i < t.length; i++) {
+//				console.log(t[i]);
+//			}
+			var json2 = {"name":"陶喆","age":45,"gender":true};
+//			console.log(json2.length);
+//			console.log(json2.name);
+//			console.log(json2.age);
+//			console.log(json2.gender);
+			console.log(json2["name"]);
+			console.log(json2["age"]);
+			console.log(json2["gender"]);
+//			console.log(json2.k);
+			for(var k in json2){
+				//json2.k 这种方式,js会认为是在动态的给json2添加属性k
+				console.log(k+':'+json2[k]);
+			}
+			
+		</script>
+	</body>
+</html>

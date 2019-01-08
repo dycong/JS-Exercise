@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = ['',1,4,7,9,55,34,51,66,21,14,0,888,987,123,159,759,555,555,0,4.5,8.9];
+			var temp;
+			for (var i = 0; i < arr.length ; i++) {
+				for(var j = 0; j < arr.length - i ; j++){
+					if (arr[j] > arr[j+1]) {
+						temp = arr[j];
+						arr[j] = arr[j+1];
+						arr[j+1] = temp;
+					}			
+				}
+			}
+			
+			console.log(arr);
+			
+		</script>
+	</body>
+</html>

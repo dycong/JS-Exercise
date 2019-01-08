@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				top: 100px;
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn1">设置到400px</button>
+		<button id="btn2">设置到800px</button>
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+//			var btn1 = document.getElementById('btn1');
+			var btns = document.getElementsByTagName('button');
+			var timer = 0;
+			//每次的步数
+			var step = 10;
+			//当前的left值
+			var current = 0;
+			btns[0].onclick = function(){
+//				console.log(getComputedStyle(box)['left']);
+//				console.log(getComputedStyle(box).left);
+//				offsetLeft(只读属性) 获取元素对象的left属性值，不带单位的数值型
+//				console.log(box.offsetLeft);
+				timer = setInterval(function(){
+					//当前的left位置值
+					current = current + step; 					
+					if(current <= 400){
+						box.style.left = current + 'px';
+					}else{
+						//box.style.left = '400px';
+						clearInterval(timer);
+					}
+				},20);				
+			}
+			btns[1].onclick = function(){
+//				console.log(getComputedStyle(box)['left']);
+//				console.log(getComputedStyle(box).left);
+				//offsetLeft(只读属性) 获取元素对象的left属性值，不带单位的数值型
+//				console.log(box.offsetLeft);
+//				//每次的步数
+//				var step = 10;
+//				//当前的left值
+//				var current = 0;
+				timer = setInterval(function(){
+					//当前的left位置值
+					current = current + step; 
+					box.style.left = current + 'px';
+					if(current <= 800){
+						box.style.left = current + 'px';
+					}else{
+						box.style.left = '800px';
+						clearInterval(timer);
+					}
+				},20);				
+			}
+			
+//			btn1.onclick = function(){
+//				box.style.left = '400px';
+//			}
+			
+		</script>
+	</body>
+</html>

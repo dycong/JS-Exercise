@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 原型链:
+			 * 当实例对象访问属性的时候,先从自身的构造函数中去访问该属性,如果没有会到
+			 * 构造函数的原型对象中去寻找,如果有就访问,如果没有,会到上上层的原型对象
+			 * 中去寻找,如果有就访问如果没有,继续向上找,直到找到Object中的原型的对象,
+			 * 如果有就访问,如果没有,是undefined
+			 * Object是最大的对象,所有对象都继承于Object
+			 */
+			function Person(name,age,gender){
+				this.name = name;
+				this.age = age;
+//				this.gender = gender;
+//				this.eat = function(){
+//					console.log('实例对象中的eat方法');
+//				}
+			}
+//			Person.prototype.gender = '男';
+//			Person.prototype.eat = function(){
+//				console.log('原型对象中的eat方法');
+//			}
+			Object.prototype.gender = 'object中的男';
+			Object.prototype.eat = function(){
+				console.log('object中的eat方法');
+			}
+			
+//			var a = new Object();
+			var jay = new Person('周杰伦',40);
+			console.log(jay.gender);
+			jay.eat();
+			console.log(jay.__proto__.__proto__.__proto__);
+			//jay.eat();
+		</script>
+	</body>
+</html>

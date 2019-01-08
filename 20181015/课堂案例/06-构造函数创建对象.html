@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 实例对象,构造函数,原型对象三者之间的关系:
+			 * 实例对象是由构造函数创建,实例对象的__proto__(隐式原型对象)指向
+			 * 构造函数中的prototype(显示原型对象),prototype中的constructor构造器
+			 * 指向的是构造函数,原型对象在构造函数中
+			 */
+			//构造函数       类型
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+				this.run = function(){
+					console.log('奔跑......');
+				}
+			}
+			//实例化对象
+			var jay = new Person('周杰伦',40);
+			console.log(jay);//实例对象
+			//console.dir 展开函数内部的结构
+			console.dir(Person);//构造函数
+//			var num = '哈哈';
+//			console.log(jay == Person);
+			console.log(jay.__proto__ == Person.prototype);//隐式指向显示
+			console.log(jay.__proto__.constructor == Person);//构造器指向构造函数
+			console.log(Person.prototype.constructor == Person);////构造器指向构造函数
+			console.log(Person.prototype);//原型对象在构造函数中
+		</script>
+	</body>
+</html>

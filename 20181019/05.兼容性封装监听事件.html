@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			
+			addEvent(btn,'click',function(){
+				alert('丁同学');
+			},false);
+			addEvent(btn,'click',function(){
+				alert('好好学习');
+			},false);
+			
+			/**
+			 * 兼容性封装添加监听事件
+			 * @param {元素的对象} obj
+			 * @param {事件类型} type
+			 * @param {执行的函数体} fn
+			 * @param {布尔值} bool
+			 */
+			
+			function addEvent(obj,type,fn,bool){
+				if(obj.addEventListener){
+					obj.addEventListener(type,fn,bool);
+				}else{
+					obj.attachEvent('on'+type,fn);
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

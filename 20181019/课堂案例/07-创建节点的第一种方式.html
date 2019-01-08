@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div>我是一个盒子</div>
+		<script type="text/javascript">
+			/*
+			 * 创建节点的第一种方法:
+			 * 用document.write()创建节点只能是在页面加载的过程中使用,
+			 * 当页面加载完后,如果使用此方法,会将页面的所有元素干掉
+			 * 
+			 */
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+				
+				document.write('<h1 title="我是标题" id="one">哈哈</h1>');
+			}
+			document.write('<h1 title="我是标题" id="one">哈哈</h1>');
+		</script>
+	</body>
+</html>

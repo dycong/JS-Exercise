@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.box {
+				width: 1000px;
+				height: 520px;
+				margin: 100px auto 0;
+			}
+			
+			#list {
+				border: 1px solid #ccc;
+				overflow: hidden;
+				width: 320px;
+			}
+			
+			.box ul li {
+				float: left;
+				position: relative;
+			}
+			
+			.box ul li a {
+				display: block;
+				width: 80px;
+				height: 31px;
+				line-height: 31px;
+				border-top: 3px solid #fff;
+				text-decoration: none;
+				text-align: center;
+				color: #333;
+			}
+			
+			.box li a.current {
+				border-top: 3px solid #f00;
+			}
+			
+			.box li span {
+				width: 1px;
+				height: 15px;
+				background-color: #ccc;
+				position: absolute;
+				top: 12px;
+				right: 0;
+			}
+			
+			.imgDiv {
+				border: 1px solid #ccc;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<ul id="list">
+				<li>
+					<a href="##" class="current">女士精品</a>
+					<span></span>
+				</li>
+				<li>
+					<a href="##">国际名牌</a>
+				</li>
+				<li>
+					<a href="##">男士精品</a>
+				</li>
+				<li>
+					<a href="##">清洁用品</a>
+				</li>
+			</ul>
+			<div class="imgDiv" style="display: block;">
+				<img src="img/1.jpg" alt="" />
+			</div>
+			<div class="imgDiv">
+				<img src="img/2.jpg" alt="" />
+			</div>
+			<div class="imgDiv">
+				<img src="img/3.jpg" alt="" />
+			</div>
+			<div class="imgDiv">
+				<img src="img/4.jpg" alt="" />
+			</div>
+		</div>
+		<script type="text/javascript">
+			//获取ul列表
+			var list = document.getElementById('list');
+			//获取ul里面后代a
+			var a = list.getElementsByTagName('a');
+			//获取box
+			var box = document.getElementById('box');
+			//获取box下所有的后代div
+			var divs = box.getElementsByTagName('div');
+
+			for(var i = 0; i < a.length; i++) {
+				//遍历的时候，把a存入a的属性中
+				a[i].setAttribute('num',i);
+//				a[i].num = i;
+				//给鼠标绑定鼠标移入事件
+				a[i].onmouseover = function() {
+
+					//排他操作，在移入a的时候，让所有上边框都为白色
+					for(var j = 0; j < a.length; j++) {
+						a[j].className = '';
+					}
+					//事件源有类名current
+					this.className = 'current';
+					for(var k = 0; k < divs.length; k++) {
+						divs[k].style.display = 'none';
+					}
+					divs[this.getAttribute('num')].style.display = 'block';
+				}
+
+			}
+		</script>
+	</body>
+
+</html>

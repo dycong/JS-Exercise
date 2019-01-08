@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background-color: skyblue;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box">一个盒子</div>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var kaiguan = false;
+			btn.onclick = function(){
+				
+				if(kaiguan == false){
+					box.style.display = 'block';
+					kaiguan = true;
+				}else{
+					box.style.display = 'none';
+					kaiguan = false;
+				}
+			}
+			
+			
+		</script> 
+		
+	</body>
+</html>

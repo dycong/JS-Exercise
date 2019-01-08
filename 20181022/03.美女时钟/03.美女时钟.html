@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<img src="" id="imgBig" />
+
+		<script type="text/javascript">
+			var timer = 0;
+			fn();
+			//一秒钟以后开始执行
+			setInterval(function() {
+				fn();
+			}, 1000);
+
+			function fn() {
+				var dt = new Date();
+				var hours = dt.getHours() < 10 ? '0' + dt.getHours() : dt.getHours();
+				var seconds = dt.getSeconds() < 10 ? '0' + dt.getSeconds() : dt.getSeconds();
+				console.log(hours);
+				console.log(seconds);
+				var imgSrc = hours + '_' + seconds;
+				var imgBig = document.getElementById('imgBig');
+				imgBig.src = 'meimei/' + imgSrc + '.jpg';
+			}
+		</script>
+	</body>
+
+</html>

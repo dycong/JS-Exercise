@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/*
+			 * 构造函数方式创建对象:
+			 * 构造函数相当于定义一个类型(class类)
+			 * 
+			 * var jay = new Person('周杰伦',40,true,'忍者');
+			 * 发生的事情:
+			 * 1.实例化一个人的对象,在内存中开辟了一个空间
+			 * 2.this指向的是当前的实例对象
+			 * 3.可以通过this.属性的方式给对象设置属性和方法
+			 * 4.构造函数不用return就可以返回实例对象
+			 */
+			
+			//人类的构造函数,相当于是一种类型(人类)
+			function Person(name,age,gender,song){
+				this.name = name;
+				this.age = age;
+				this.gender = gender;
+				this.sing = function(){
+					console.log('唱'+song);
+				}
+			}
+			//狗类
+			function Dog(name,age,gender,jiao){
+				this.name = name;
+				this.age = age;
+				this.gender =gender;
+				this.jiao = function(){
+					console.log('汪汪');
+				}
+			}
+			//实例化对象
+			var jay = new Person('周杰伦',40,true,'忍者');
+			var jolin = new Person('蔡依林',38,false,'骑士精神');
+			jolin.sing();
+			var dog1  = new Dog('来福',6,true);
+			dog1.jiao();
+			//instanceof 判断某个对象是否属于某个类型
+			console.log(jay instanceof Dog);
+			console.log(dog1 instanceof Person);
+			
+//			console.log(dog1 instanceof Object);
+//			console.log(jolin instanceof Object);
+		</script>
+	</body>
+</html>

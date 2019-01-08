@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		      /*
+		       * 创建对象的第一种方式:用系统函数Object()
+		       * 
+		       */
+		      //创建一个对象,人,用变量保存
+		      var person = new Object();
+		      //给对象动态添加属性,给属性赋值
+		      person.name = '周杰伦';
+		      person.age = 40;
+		      person.eyes = '小眼儿';
+		      //读取对象的属性值
+		      console.log(person.name);
+		      person.sing = function(){
+		      	console.log('青花瓷~');
+		      }
+		      person.sing();
+		      
+		      var p2 = new Object();
+		      p2.name = '王力宏';
+		      p2.age = 40;
+		      
+		      var dog = new Object();
+		      dog.name = '旺财';
+		      dog.age = 2;
+		      dog.eat = function(){
+		      	console.log('啃骨头');
+		      }
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button id="btn">生成列表</button>
+		<div id="box"></div>
+
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+
+			var btn = document.getElementById('btn');
+
+			var li = document.getElementsByTagName('li');
+
+			var arr = ['周杰伦', '张学友', '林俊杰', '王力宏'];
+			btn.onclick = function() {
+				//创建ul元素对象
+				var ul = document.createElement('ul');
+				//给对象设置属性
+				ul.setAttribute('id', 'list');
+				//将ul对象追加到box中
+				box.appendChild(ul);
+				//创建li对象
+				for(var i = 0; i < arr.length; i++) {
+					var li = document.createElement('li');
+					li.innerText = arr[i];
+					li.setAttribute('num', i)
+					ul.appendChild(li);
+					if(i % 2 == 0) {
+						li.style.backgroundColor = 'pink';
+					} else {
+						li.style.backgroundColor = 'orange';
+					}
+				}
+				//ul子元素li的长度
+				for(var i = 0; i < ul.children.length; i++) {
+					ul.children[i].onmouseover = function() {
+						if(this.getAttribute('num') % 2 == 0) {
+							this.style.backgroundColor = 'blue';
+						} else {
+							this.style.backgroundColor = 'yellow';
+						}
+					}
+					ul.children[i].onmouseout = function() {
+						if(this.getAttribute('num') % 2 == 0) {
+							this.style.backgroundColor = 'pink';
+						} else {
+							this.style.backgroundColor = 'orange';
+						}
+					}
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

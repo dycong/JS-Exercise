@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				width: 310px;
+				height: 200px;
+				margin: 100px auto 0;
+				/*background-color: pink;*/
+			}
+			
+			.add {
+				width: 100px;
+				height: 30px;
+				cursor: pointer;
+			}
+			
+			.box table {
+				width: 300px;
+				border: 1px solid #000;
+				border-collapse: collapse;
+			}
+			
+			.box table th {
+				border: 1px solid #ccc;
+				text-align: center;
+				padding: 5px 0;
+				background-color: #09c;
+				color: #fff;
+			}
+			
+			.box table td {
+				border: 1px solid #ccc;
+				text-align: center;
+				padding: 5px 0;
+			}
+			
+			.meng {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				left: 0;
+				top: 0;
+				display: none;
+			}
+			
+			.dui {
+				width: 430px;
+				height: 250px;
+				background-color: #fff;
+				position: absolute;
+				left: 50%;
+				margin-left: -215px;
+				top: 50%;
+				margin-top: -125px;
+				display: none;
+			}
+			
+			.dui h2 {
+				background-color: #eee;
+				font-size: 20px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+			
+			.dui input {
+				width: 300px;
+				height: 30px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+			}
+			
+			.dui .content {
+				padding: 15px 0 0 20px;
+			}
+			
+			.dui .finish {
+				width: 100px;
+				height: 30px;
+				display: block;
+				margin: 20px auto 0;
+				cursor: pointer;
+			}
+			
+			.close {
+				/*font-size: 20px;*/
+				right: 2px;
+				top: 2px;
+				position: absolute;
+				font-weight: 700;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<button class="add" id="add">添加数据</button>
+			<table>
+				<thead>
+					<tr>
+						<th>电影名称</th>
+						<th>领衔主演</th>
+						<th>已看过</th>
+					</tr>
+				</thead>
+				<tbody id="tMain">
+					<tr>
+						<td>复仇者联盟</td>
+						<td>小罗伯特唐尼</td>
+						<td>
+							<a href="##">看过</a>
+						</td>
+					</tr>
+					<tr>
+						<td>神探夏洛克</td>
+						<td>卷福</td>
+						<td>
+							<a href="##">看过</a>
+						</td>
+					</tr>
+					<tr>
+						<td>终结者</td>
+						<td>施瓦辛格</td>
+						<td>
+							<a href="##">看过</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="meng" id="meng"></div>
+		<div class="dui" id="dui">
+			<span class="close" id="close">X</span>
+			<h2>添加数据</h2>
+			<div class="content">
+				<label for="txt1">电影名称</label>
+				<input type="text" id="txt1" placeholder="请输入电影名称" />
+			</div>
+			<div class="content">
+				<label for="txt2">领衔主演</label>
+				<input type="text" id="txt2" value="周润发" />
+			</div>
+			<button class="finish" id="finishBtn">完成</button>
+		</div>
+				<script src="01.index.js" type="text/javascript" charset="utf-8"></script>		
+	</body>
+
+</html>

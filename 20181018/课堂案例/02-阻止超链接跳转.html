@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<!--第三种方式-->
+		<a href="http://www.taobao.com" id="a1" onclick="return fn();">淘宝</a>
+		<script type="text/javascript">
+			/*
+			 * a标签默认有单击跳转的行为,如果想阻止默认行为,给事件返回一个return false;
+			 */
+			var a1 = document.getElementById('a1');
+			//第一种方式;
+			//			a1.onclick = function(){
+			//				alert(1);
+			//				//阻止超链接跳转,阻止标签的默认行为
+			//				return false;
+			//			}
+			//第二种方式:
+////			a1.onclick = function(){
+////				return fn();
+//
+////			}
+			function fn() {
+
+				return false;
+			}
+//			
+//			
+//			function sum(){
+////				var a =  fn1();
+//				return  fn1();
+//			}
+//			function fn1(){
+//				return '哈哈';
+//			}
+//			console.log(sum());
+
+
+			a1.onclick = function(){
+				var c = sum(1,2);
+				
+				return false;
+			}
+			
+			function sum(a,b){
+				return a+b;
+			}
+		</script>
+	</body>
+
+</html>

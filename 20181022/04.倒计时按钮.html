@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			textarea{
+				width: 200px;
+				height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>协议</h2>
+		<textarea>
+			内容
+		</textarea><br />
+		<button disabled="disabled" id="btn">请仔细阅读协议(5s)</button>
+		<script type="text/javascript">
+			var timer = 0;
+			var btn = document.getElementById('btn');			
+			var num = 5;
+			timer = setInterval(function(){			
+				num--;
+				btn.innerText = '请仔细阅读协议('+num+'s)';	
+				if(num == 0){
+					//关闭定时器
+					clearInterval(timer);
+					//按钮接触禁用
+					btn.disabled = false;
+					btn.innerText = '同意';
+				}
+			},1000)
+			
+		</script>
+	</body>
+</html>

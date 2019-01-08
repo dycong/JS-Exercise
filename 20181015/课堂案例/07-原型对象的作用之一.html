@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * run方法,不同的对象所调用实现的效果是一样的,由于创建不同的对象,所存储在
+			 * 堆内存中的地址也不同,所以调用相同的方法,指向是不同的,这会造成资源的浪费
+			 * 原型对象的作用之一实现数据共享,节省资源.
+			 * 原型对象是一块公共的存储资源,我们可以把对象相同的属性或者方法定义到原型
+			 * 对象中
+			 * 
+			 */
+			//构造函数      魂斗罗类型
+			function Person(color, name,gender) {
+				this.color = color;
+				this.name = name;
+				this.gender = gender;
+				//				this.run = function(){
+				//					console.log('拿着枪跑.....');
+				//					console.log('拿着枪跑.....');
+				//					console.log('拿着枪跑.....');
+				//					console.log('拿着枪跑.....');
+				//					console.log('拿着枪跑.....');
+				//				}
+				
+			}
+			//Person.prototype原型对象
+			Person.prototype.run = function() {
+				console.log('拿着枪跑.....');
+			}
+			//
+			Person.prototype.gender = '男';
+			var bluePer = new Person('blue', '小兰','女');
+			var redPer = new Person('red', '小红','女');
+			console.log(redPer);
+			console.dir(Person);
+			bluePer.run();
+			console.log(bluePer.run == redPer.run);
+			console.log(redPer.gender);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box">
+			
+		</div>
+		<script type="text/javascript">
+			/*
+			 * innerHTML 方式:用字符串的方式来创建节点
+			 */
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			btn.onclick = function(){
+				box.innerHTML = '<ul id="list"><li>周杰伦</li><li>头文字D</li><li>不能说的秘密</li><li>黄金甲</li></ul>';
+				var list = document.getElementById('list');
+				var lis = list.getElementsByTagName('li');
+				for (var i = 0; i < lis.length; i++) {
+					lis[i].onmouseover  = function(){
+						this.style.backgroundColor = 'red';
+					}
+					lis[i].onmouseout  = function(){
+						this.style.backgroundColor = '';
+					}
+				}
+				
+			}
+		</script>
+	</body>
+</html>

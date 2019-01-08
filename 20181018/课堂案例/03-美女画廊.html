@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			body {
+				background: #ccc;
+			}
+			
+			.box {
+				width: 500px;
+				height: 400px;
+				/*background: pink;*/
+				margin: 100px auto;
+			}
+			
+			.box ul {
+				overflow: hidden;
+				margin-top: 20px;
+			}
+			
+			img {
+				display: block;
+			}
+			
+			.box ul li {
+				float: left;
+				margin-right: 20px;
+			}
+			
+			.imgBig {
+				border: 1px solid #000;
+				margin-top: 20px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<h2>美女画廊</h2>
+			<ul id="list">
+				<li>
+					<a href="images/1.jpg"  >
+						<img src="images/1-small.jpg" alt="" width="100" />
+					</a>
+				</li>
+				<li>
+					<a href="images/2.jpg">
+						<img src="images/2-small.jpg" alt="" width="100" />
+					</a>
+				</li>
+				<li>
+					<a href="images/3.jpg">
+						<img src="images/3-small.jpg" alt="" width="100" />
+					</a>
+				</li>
+				<li>
+					<a href="images/4.jpg">
+						<img src="images/4-small.jpg" alt="" width="100" />
+					</a>
+				</li>
+			</ul>
+			<!--<a href="##">哈哈哈哈</a>-->
+			<img src="images/placeholder.png" alt="" class="imgBig" id="imgBig" width="400" height="250" />
+		</div>
+		<script type="text/javascript">
+			//获取列表ul
+			var list = document.getElementById('list');
+			//获取list里面的后代a标签
+			var a = list.getElementsByTagName('a');
+			//获取大图
+			var imgBig = document.getElementById('imgBig');
+			for(var i = 0;i<a.length;i++){
+				//给所有的a绑定事件
+				a[i].onclick = function(){
+					//单击哪个a,取出自身的href属性的值,赋值给大图的src
+					
+					imgBig.src = this.href;
+					return false;
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+
+		<ul id="list">
+			<li>张学友</li>
+			<li>周杰伦</li>
+			<li>林俊杰</li>
+			<li>陈奕迅</li>
+			<li>张宇</li>
+			<li>李宗盛</li>
+			<li>罗大佑</li>
+			<li>张敬轩</li>
+			<li>张震岳</li>
+			<li>谭咏麟</li>
+		</ul>
+
+		<script type="text/javascript">
+			var list = document.getElementById('list');
+
+			console.log(getFirstElementChild(list));
+//			console.log(getLastElementChild(list));
+
+			/**
+			 * 兼容性封装第二个子元素
+			 * @param {元素对象} obj
+			 */
+			function getFirstElementChild(obj) {
+				//如果第一个元素值存在，进入高级浏览器判断
+				if(obj.firstElementChild) {
+					//将第一个子元素赋值给next
+					var next = obj.firstElementChild;
+					//将next的下一个兄弟元素赋值给next
+					next = next.nextElementSibling;
+					//返回next
+					return next;
+				} else {
+					//将对象的第一个子元素赋值给nodeELe
+					var nodeEle = obj.firstChild;
+					//将nodeEle第一个字元素的下一个子元素赋值给nodeELe
+					nodeEle = nodeEle.nextSibling;
+					//判断节点是否有值 && 节点的类型是不是等于1（元素）
+					while(nodeEle && nodeEle.nodeType != 1) {
+						//将下一个子元素赋值给自己，然后再进行循环
+						nodeEle = nodeEle.nextSibling;
+					}
+					return nodeEle;
+				}
+			}
+			
+			/**
+			 * 兼容性封装倒数第二个元素
+			 * @param {元素对象} obj
+			 */
+			function getLastElementChild(obj){
+				//
+				var last = obj.lastElementChild;
+				if(obj.lastElementChild){
+					last = last.previousElementSibling;
+					return last;
+				}else{
+					var nodeLast = obj.lastChild;
+					nodeLast = nodeLast.previousSibling;
+					while(nodeLast && nodeLast.nodeType != 1){
+						nodeLast = nodeLast.previousSibling;
+					}
+					return nodeLast;					
+				}
+			}
+		</script>
+
+	</body>
+
+</html>

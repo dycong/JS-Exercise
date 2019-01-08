@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button><br />
+		<img src="" id="imgLiu" width="300"/>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var imgLiu = document.getElementById('imgLiu');
+			
+			btn.onclick = function(){
+				imgLiu.src = 'images/liuyan.jpg';
+				console.log(imgLiu.src);
+				imgLiu.title = '我是柳岩';
+				console.log(imgLiu.title);
+			}
+			
+		</script>
+	</body>
+</html>

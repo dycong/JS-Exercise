@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 1.弹出prompt
+			 * 2.输入学生人数,弹出对应学生人数个数的prompt次数
+			 * 3.分别输入每位学生的分数,求和,求平均数,最高分,最低分
+			 */
+			//获取学生的人数,作为循环的次数
+			var stuCount = parseInt(prompt('请输入学生人数:'));
+			//存储每位学生的分数
+			var scoreArr = [];
+			//对应弹出学生人数次数的对话框,输入每位学生的分数
+			for(var i = 0;i<stuCount;i++){
+				//把每位同学的分数插入数组
+			 scoreArr[scoreArr.length]	= parseInt(prompt('输入第'+(i+1)+'位学生的分数:'));
+			}
+			console.log(scoreArr);
+			
+			var sum = 0;
+			var max = scoreArr[0];
+			var min = scoreArr[0];
+			//遍历数组求和,平均值,最高分,最低分
+			for (var i = 0; i < scoreArr.length; i++) {
+				//求和
+				sum += scoreArr[i];
+				//最高分
+				if(max < scoreArr[i]){
+					max = scoreArr[i];
+				}
+				//最低分
+				if(min > scoreArr[i]){
+					min = scoreArr[i];
+				}
+			}
+			console.log('总分:'+sum);
+			console.log('平均分:'+sum/scoreArr.length);
+			console.log('最高分:'+max);
+			console.log('最低分:'+min);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * this是一个关键字,在构造函数中,this指向的是当前的实例对象
+			 * 在普通函数中,this指向的是window
+			 */
+			function Car(name){
+				this.name = name;
+				this.run = function(){
+					console.log(this);
+				}
+			}
+			var car = new Car();
+			//car.run();
+			function sum(){
+				console.log(this);
+				
+			}
+			sum();
+		</script>
+	</body>
+</html>

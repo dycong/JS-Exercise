@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">
+			歌星
+			<!--R&B 节奏布鲁斯  节奏蓝调  -->
+			<h2 class="one">周杰伦</h2>
+			<ul id="list">
+				<li>双节棍</li>
+				<li>青花瓷</li>
+				<li>星晴</li>
+				<li>龙卷风</li>
+			</ul>
+			<h3>方文山</h3>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 对于节点,它的父节点永远都是元素
+			 * 对象.parentNode    父节点    无论高级浏览器还是低版本浏览器都能使用
+			 * 对象.parentElement 父元素    无论高级浏览器还是低版本浏览器都能使用
+			 */
+			var list = document.getElementById('list');
+			//console.log(list.parentNode);
+			console.log(list.parentElement);
+		</script>
+	</body>
+</html>

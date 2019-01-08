@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			a {
+				text-decoration: none;
+			}
+			
+			input {
+				outline: none;
+			}
+			
+			img {
+				display: block;
+			}
+			
+			html,
+			body {
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			#wrap {
+				width: 100%;
+				height: 100%;
+				background: gray;
+			}
+			
+			#content {
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<!--模拟屏幕区域-->
+		<section id="wrap">
+			<div id="content"></div>
+		</section>
+
+	</body>
+
+	<script type="text/javascript">
+		//取消默认行为
+		document.addEventListener('touchstart', function(e) {
+			e.preventDefault();
+		})
+
+		//点透处理
+		var aNodes = document.querySelectorAll('a');
+		for(var i = 0; i < aNodes.length; i++) {
+			aNodes.addEventListener('touchstart', function() {
+				window.location = this.href;
+			})
+		}
+
+		//适配
+
+		//竖向滑屏
+		//获取元素
+		var wrap = document.getElementById('wrap');
+		var content = document.getElementById('content');
+
+		//造文本
+		for(var j = 0; j < 300; j++) {
+			content.innerHTML += j + '</br>';
+		}
+		//元素初始位置 + 手指距离差 = 元素最终位置
+
+		//定义元素初始位置
+		var eleY = 0;
+		//定义手指初始位置
+		var startY = 0;
+
+		//手指按下（父元素绑定事件）
+		wrap.addEventListener('touchstart', function(e) {
+			//元素初始位置 （子元素位置）
+			eleY = content.offsetTop;
+			//手指初始位置
+			startY = e.changedTouches[0].clientY;
+		})
+		//手指移动（父元素绑定事件）
+		wrap.addEventListener('touchmove', function(e) {
+			//手指结束位置
+			var endY = e.changedTouches[0].clientY;
+			//手指距离差 结束位置 - 初始位置
+			var disY = endY - startY;
+			//范围限定 （top是负值）
+			var top = eleY + disY;
+			if(top > 0){
+				top = 0;
+			}else if(top < document.documentElement.clientHeight - content.offsetHeight){
+				top = document.documentElement.clientHeight - content.offsetHeight;
+			}
+			//确定元素最终位置
+			content.style.top = top + 'px';
+
+		})
+	</script>
+
+</html>

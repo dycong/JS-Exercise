@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * Date日期对象
+			 */
+			var d = new Date();
+			console.log(d);
+			console.log(d.getFullYear());//年
+			console.log(d.getMonth()+1);//月 从 Date 对象返回月份 (0 ~ 11)。
+			console.log(d.getDate());//日
+			console.log(d.getDay());//星期    从 Date 对象返回一周中的某一天 (0 ~ 6)。
+			console.log(d.getHours());//小时
+			console.log(d.getMinutes());//分钟
+			console.log(d.getSeconds());//秒
+			console.log(d.toLocaleDateString());//日期
+			console.log(d.toLocaleTimeString());//时间
+			console.log(d.valueOf());//毫秒 (时间戳)    1秒等于1000毫秒  根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。
+			//2018101614443  在数据库中,为了避免订单号(id)重复,会用时间加上一组随机数组成
+			
+			var str = d.getDay();
+			//var num = ''
+			switch (str){
+				case 0:str = '日';
+					break;
+				case 1:str = '一';
+					break;
+				case 2:str = '二';
+					break;
+				case 3:str = '三';
+					break;
+				case 4:str = '四';
+					break;
+				case 5:str = '五';
+					break;
+				case 6:str = '六';
+					break;
+			}
+			
+			//  2018年10月16日星期二  下午 2:44:30
+			console.log(d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日'+'星期'+str+d.toLocaleTimeString());
+		</script>
+	</body>
+</html>

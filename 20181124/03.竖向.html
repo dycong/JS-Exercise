@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Title</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				text-decoration: none;
+			}		
+			html,
+			body {
+				overflow: hidden;
+				height: 100%;
+			}
+			#wrap{
+				height: 100%;
+				width: 100%;
+				background-color: gray;
+			}
+			#content{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--模拟屏幕区域-->
+		<section id="wrap">
+			<div id="content"></div>
+		</section>
+
+<script type="text/javascript">
+	window.onload = function(){
+		//取消默认行为
+		document.addEventListener('touchstart',function(e){
+			e.preventDefault();
+		})
+		
+		//点透
+		var aNodes = document.querySelectorAll('a');
+		for(var i = 0;i<aNodes.length;i++){
+			aNodes.addEventListener('touchstart',function(){
+				window.location = this.href;
+			})
+		}
+		
+		//获取元素
+		var wrap = document.getElementById('wrap');
+		var content = document.getElementById('content');
+		
+		for(var j = 0;j < 200;j++){
+			content.innerHTML += j + '<br/>';
+		}
+		
+		//手指初始位置
+		var startY = 0;
+		//元素初始位置
+		var eleY = 0;
+		//手指按下逻辑
+		wrap.addEventListener('touchstart',function(e){
+			startY = e.changedTouches[0].clientY;
+			
+			eleY = content.offsetTop;
+		})
+		
+		//手指移动逻辑
+		wrap.addEventListener('touchmove',function(e){
+			//手指结束位置
+			var endY = e.changedTouches[0].clientY;
+			//手指位置差
+			var disY = endY - startY ;
+			
+			var top = disY + eleY;
+			if(top > 0){
+				top = 0;
+			}else if(top < document.documentElement.clientHeight - content.clientHeight){
+				top = document.documentElement.clientHeight - content.clientHeight;
+			}		
+			content.style.top = top + 'px';
+			
+		})
+		
+	}
+	
+</script>
+	</body>
+
+</html>

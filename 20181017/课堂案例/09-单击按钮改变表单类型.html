@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="text" />
+		<input type="text" />
+		<input type="button"  value="按钮" id="btn"/>
+		<input type="text" />
+		<input type="text" />
+		<input type="text" />
+		<input type="text" />
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var inputs = document.getElementsByTagName('input');
+			btn.onclick = function(){
+				for (var i = 0; i < inputs.length; i++) {
+					//inputs[i].type = 'checkbox';
+					//当不是按钮的时候,说明是输入框,才变成checkbox
+					if(inputs[i].type != 'button'){
+						inputs[i].type = 'checkbox';
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 简单数据类型: 数值型  字符串型   布尔型
+			 * 复杂数据类型: 对象型
+			 * 
+			 * 基本包装类型(对象型):  Number  String  Boolean 
+			 * 
+			 * 基本包装类型作用:
+			 * 1.这三种类型不是用来让我们人为创建的,因为简单数据类型,通常我们
+			 * 会做一些值的比较,由于对象存储在各自的地址空间内,所以内部的属性
+			 * 和方法是和其它对象中的属性和方法不相等的
+			 * 2.当简单数据类型需要调动方法时,会将自己先转换成基本包装类型,
+			 * 然后调用对象中的方法,在内存中会临时创建一个对象,当调用结束后,
+			 * 对象将被销毁
+			 * 
+			 */
+			
+			var num = 1;
+			console.log(num.toString());//先将自己转换成基本包装类型,自身
+			//已经是对象了,是对象就可以调方法了,调用toString方法,会在堆内存中创建一个临时对象,当转换完后,对象不在使用就会被销毁
+			console.log(num == 1);
+     		var num2  = new Number(3);
+     		var num3 =  new Number(3);
+//			console.log(num2);
+			//var str = new String('哈哈');
+			//console.log(str);
+			console.log(num2 == num3);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<p>我是p段落</p>
+		<p>我是p段落</p>
+		<p>我是p段落</p>
+		<p>我是p段落</p>
+		<p>我是p段落</p>
+		<p>我是p段落</p>
+		
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var ps = document.getElementsByTagName('p');
+			
+			btn.onclick = function(){
+				for (var i = 0; i < ps.length; i++) {
+					ps[i].innerHTML = '我是p标签';
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

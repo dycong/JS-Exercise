@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 字符串是一个一个的字符连接起来的
+			 * 字符串类型是一个比较特殊的数据类型,当在内存中保存完数据,再次
+			 * 被赋值的时候,不是在当前的地址空间修改值,而是重新开辟了一个新的
+			 * 空间来存储新的字符串
+			 */
+			var str01 = '今天下午好热啊!';
+			//console.log(str01.length);
+//			console.log(str01[0]);
+//			for(var i = 0; i<str01.length;i++){
+//				console.log(str01[i]);
+//			}
+			//str01[2]='上';
+			str01 = '今天上午就是热';
+			console.log(str01);
+			var num = 1;
+			num = 2;
+		</script>
+	</body>
+</html>

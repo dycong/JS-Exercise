@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>设置宽度</button>
+		<button>设置高度</button>
+		<button>设置背景色</button>
+		<button>读取样式</button>
+		<div id="box">我是一个盒子</div>
+		<script type="text/javascript">
+			/*
+			 * 设置元素样式:
+			 * 对象.style.属性 = '200px'
+			 * 
+			 */
+			var btns = document.getElementsByTagName('button');
+			var box = document.getElementById('box');
+			//设置宽度
+			btns[0].onclick = function(){
+				box.style.width = '200px';
+			}
+			//设置高度
+			btns[1].onclick = function(){
+				box.style.height = '200px';
+			}
+			//设置背景色
+			btns[2].onclick = function(){
+				//当是复合属性的时候,不能用background-color,因为在js中-是运算符减号
+				//此时要用驼峰命名法 backgroundColor
+				box.style.backgroundColor = 'red';
+			}
+						//读取样式
+			btns[3].onclick = function(){
+				alert(box.style.backgroundColor);
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var json = {"name":"周杰伦","age":40,"gender":true};
+			
+			var str = JSON.stringify(json);
+			
+			var json1 = JSON.parse(JSON.stringify(json));
+			
+			console.log(str);
+			console.log(json1);
+			
+//			console.log(json.length);
+//			console.log(json.name);
+//			console.log(json.age);
+//			console.log(json.gender);
+			console.log(json["name"]);
+			console.log(json["age"]);
+			console.log(json["gender"]);
+			
+			for(var k in json){
+				console.log(k+':'+json[k]);
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

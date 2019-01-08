@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var count = parseInt(prompt('请输入学生人数:'));
+			
+			var scoreArr = [];
+			
+			for (var i = 0 ; i < count ; i++) {
+				scoreArr[scoreArr.length] = parseInt(prompt('请输入第'+(i+1)+'位学生的成绩'));
+			}
+			var sum = 0;
+			var max = scoreArr[0];
+			var min = scoreArr[0];
+			for (var i = 0 ; i < scoreArr.length ; i++) {
+				sum += scoreArr[i];
+				if (max < scoreArr[i]) {
+					max = scoreArr[i];
+				}
+				if (min > scoreArr[i]) {
+					min = scoreArr[i];
+				}
+			}		
+			console.log('总分'+ sum);
+			console.log('平均分'+ sum/scoreArr.length);
+			console.log('最高分'+ max);
+			console.log('最低分'+ min);
+			
+			
+		</script>
+	</body>
+</html>

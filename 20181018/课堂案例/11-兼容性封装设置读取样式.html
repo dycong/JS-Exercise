@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button>读取</button>
+		<button>设置</button>
+		<div id="box" class="one">我是一个盒子</div>
+		<script type="text/javascript">
+			/*
+			 * 对象.style.属性只能设置和读取标签的行内样式,用选择器的方式是不能读取
+			 * 和设置的.
+			 * getComputedStyle(元素对象).css属性 高级浏览器能使用,低版本浏览器是不能用,此方法是window下的方法或者属性,由于window可以省略,所以当低版本浏览器访问此属性
+			 * 的时候,由于低版本认为在window下没有此属性,所以此时在判断的时候,会报错
+			 * 我们在判断的时候要加上window.getComputedStyle,此时只是undefined,
+			 * 不会报错
+			 * 对象.currentStyle.css属性 所有ie都能用
+			 * 
+			 * 当进行遍历或者封装的时候,属性要用对象["属性名"]的方式进行访问
+			 */
+			var btns = document.getElementsByTagName('button');
+			var box = document.getElementById('box');
+
+			//读取
+			btns[0].onclick = function() {
+				//				alert(box.style.width);
+				//				alert(box.style["width"]);
+				//高级能用
+				//				console.log(getComputedStyle(box).backgroundColor);
+				//console.log(box.currentStyle.width);
+				//				if(window.getComputedStyle){
+				//					alert(1);
+				//				}
+				//				if(window.getComputedStyle){
+				//					//高级浏览器里面有源码,是true
+				//					//alert('高级浏览器');
+				//					console.log(getComputedStyle(box).width);
+				//				}else{
+				//					//低版本浏览器里面没有代码,是undefined
+				//					//alert('低版本浏览器');
+				//					console.log(box.currentStyle.width);
+				//				}
+				console.log(getStyle(box,'height'));
+			}
+
+			function getStyle(obj,pro) {
+				if(window.getComputedStyle) {
+					//高级浏览器里面有源码,是true
+					//alert('高级浏览器');
+					return getComputedStyle(obj)[pro];
+				} else {
+					//低版本浏览器里面没有代码,是undefined
+					//alert('低版本浏览器');
+					return obj.currentStyle[pro];
+				}
+			}
+
+			//设置
+			btns[1].onclick = function() {
+				box.style.width = '500px';
+				box.style.height = '800px';
+			}
+			
+//			var json = {"name":"小明","age":18};
+//			
+//			for(var k in json){
+//				console.log(json[k]);
+//			}
+		</script>
+	</body>
+
+</html>

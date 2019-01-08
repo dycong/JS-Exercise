@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 作用域链:在当前的作用域中访问某个变量,此时js会去当前作用域中,
+			 * 查找是否
+			 * 有用var声明的此变量,如果有,直接访问,如果没有,会到上一层作用域去寻
+			 * 找,
+			 * 如果上一层作用域中有同名的变量,就直接访问,如果没有,还会去上上
+			 * 层继续寻找,直到找到全局作用域中,如果在全局作用域中,有此变量,直接访
+			 * 问 如果还没有,报错,我们认为查找的过程形成里一个链条,这个链条叫做作
+			 * 用域链
+			 */
+			var num = '哈哈';
+			function fn1(){
+//				var num = 1;
+				function  fn2(){
+  					  num = 2;
+					function fn3(){
+//						var num = 3;
+						alert(num);
+					}
+					fn3();
+				}
+				fn2();
+			}
+			
+			
+			fn1();
+     		alert(num);
+		</script>
+	</body>
+</html>

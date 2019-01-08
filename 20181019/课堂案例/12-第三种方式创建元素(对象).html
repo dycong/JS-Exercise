@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button> 	
+		<div id="box"></div>
+		<script type="text/javascript">
+			/*
+			 * 第三种创建对象的方式: document.createElement
+			 * 对象.appendChild():将子元素追加到父元素上
+			 * 
+			 * 用对象的方式创建Dom效率要高于用字符串创建对象的方式,因为字符串
+			 * 创建对象的方式会造成字符串大量拼接
+			 * 
+			 */
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			btn.onclick = function(){
+				//创建ul元素对象
+				var ul = document.createElement('ul');
+//				console.log(ul);
+				//给对象设置属性
+				ul.setAttribute('id','list');
+				//设置对象的内容
+//				ul.innerText = '啊哈哈';
+				//将ul对象追加到box中
+				box.appendChild(ul);
+				//创建li对象
+				var li = document.createElement('li');
+				li.innerText = '老刘';
+				li.setAttribute('title','人高马大');
+				//将li对象追加到ul
+				ul.appendChild(li);
+			}
+		</script>
+	</body>
+</html>

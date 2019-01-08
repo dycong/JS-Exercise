@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 预解析: js会把用var定义的变量和用定义函数名方式定义的函数,
+			 * 预先解析,将声明提升
+			 * 
+			 */
+//			var a;
+//			console.log(window.a);
+//			a = 1;
+//			function fn(){
+//				console.log('哈哈');
+//			}
+//			window.fn();
+			
+//			var a = 1;
+//			function fn(a){
+//				//var a;
+//				a = 5; 
+//				console.log(a);
+//			}
+//			fn();
+//			console.log(a);
+			var a;
+		    a = 1;
+			a = function(){
+				console.log(a);
+			}
+			a();
+			console.log(a);
+		</script>
+	</body>
+</html>

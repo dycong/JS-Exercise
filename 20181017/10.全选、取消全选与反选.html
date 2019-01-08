@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>全选</button>
+		<button>取消全选</button>
+		<button>反选</button><br />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		
+		<script type="text/javascript">
+			/*
+			 * 在表单中，选中属性通过true和false来进行设置
+			 */
+			
+			var btns = document.getElementsByTagName('button');
+			var inputs = document.getElementsByTagName('input');
+			
+			btns[0].onclick = function(){
+				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].checked = true;
+				}
+			}
+			btns[1].onclick = function(){
+				for (var i = 0; i < inputs.length; i++) {
+					inputs[i].checked = false;
+				}
+			}
+			btns[2].onclick = function(){
+				for (var i = 0; i < inputs.length; i++) {
+					
+					inputs[i].checked = !inputs[i].checked;
+					
+//					if(inputs[i].checked){
+//						inputs[i].checked = false; 
+//					}else{
+//						inputs[i].checked = true;
+//					}
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.one{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="radio" name="gender" class="one" value="1"/>
+		<input type="radio" name="gender" class="one" value="2" id="i-1"/>
+		<input type="radio" name="gender"/>
+		<input type="radio" name="gender"/>
+		<input type="radio" name="haha"/>
+		
+		<script type="text/javascript">
+			/*
+			 * 跟name属性获取元素,返回一个数组
+			 */
+//			var inputs = document.getElementsByName('gender');
+			//console.log(inputs);
+			/*
+			 * 根据class名获取元素,不兼容ie8及以下
+			 */
+//			var inputs = document.getElementsByClassName('one');
+//			console.log(inputs);
+			
+			
+			// 根据选择器获取dom元素,ie7及以下不能使用,通常使用在移动端
+			//获取多个中的第一个
+//			var inputs = document.querySelector('#i-1');
+
+			var inputs = document.querySelectorAll('#i-1');
+			console.log(inputs);
+		</script>
+	</body>
+</html>

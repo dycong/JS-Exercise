@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>改变宽度</button>
+		<button>改变高度</button>
+		<button>改变背景色</button>
+		<button>读取属性</button>
+		<div id="box">我是一个盒子</div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			var btns = document.getElementsByTagName('button');
+			
+			btns[0].onclick = function(){
+				box.style.width = '200px';
+			}
+			btns[1].onclick = function(){
+				box.style.height = '200px';
+			}
+			btns[2].onclick = function(){
+				box.style.backgroundColor = 'skyblue';
+			}
+			btns[3].onclick = function(){
+				alert(box.style.width);
+			}
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				top: 100px;
+				left: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="btn1">设置到400px</button>
+		<button id="btn2">设置到800px</button>
+		<div id="box">
+
+		</div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			//			var btn1 = document.getElementById('btn1');
+			var btns = document.getElementsByTagName('button');
+
+			//设置400px
+			btns[0].onclick = function() {
+				animate(box, 400)
+			}
+			//设置800px
+			btns[1].onclick = function() {
+				animate(box,800)
+			}
+
+			function animate(obj, target) {
+				//offsetLeft(只读属性) 获取元素对象的left属性值，不带单位的数值型
+				//给obj对象动态添加timer，存定时器
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					//每次的步数
+					var step = 9;
+					var current = obj.offsetLeft;
+					step = current < target ? step : -step;
+					//每次用当前的值+步数再赋值给自己
+					current = current + step;
+					//因为无论目标值大于当前值，还是目标值小于当前值
+					//距离始终是个正数
+					if(Math.abs(target - current) > Math.abs(step)) {
+						obj.style.left = current + 'px';
+					} else {
+						obj.style.left = target + 'px';
+						clearInterval(obj.timer);
+					}
+				}, 20);
+			}
+		</script>
+	</body>
+
+</html>

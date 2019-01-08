@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">加载列表</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var arr = ['周杰伦','刘若英','蔡依林','林宥嘉','薛之谦'];
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			var str = '';
+			btn.onclick = function(){
+				str = '<ul>';
+//				str= str+'<li>哈哈1</li>';
+//				str= str+'<li>哈哈2</li>';
+//				str= str+'<li>哈哈3</li>';
+//				str= str+'<li>哈哈4</li>';
+//				str= str+'<li>哈哈5</li>';
+				for(var i = 0;i<arr.length;i++){
+					str=str+'<li>'+arr[i]+'</li>';//'+arr[i]+'
+				}
+				str = str+'</ul>';
+//				console.log(str);
+				var lis = document.getElementsByTagName('li');
+				console.log(lis);
+				box.innerHTML = str;
+				//绑定事件  一定是元素已经在dom树上
+				for(var j = 0;j<lis.length;j++){
+					lis[j].onmouseover = function(){
+						this.style.background = 'red';
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

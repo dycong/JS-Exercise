@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div01{
+				width: 300px;
+				height: 300px;
+				background: red;
+			}
+			#div02{
+				width: 200px;
+				height: 200px;
+				background: green;
+			}
+			#div03{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div01">div01
+			<div id="div02">div02
+				<div id="div03">div03</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 事件冒泡: 当嵌套的元素添加了同一个事件类型,此时当触发该元素时,会从该
+			 * 元素依次向外冒泡触发其它父辈元素相同的事件类型,直到window,这个过程我们就称为事件
+			 * 冒泡过程
+			 */
+			var div03 = document.getElementById('div03');
+			var div02 = document.getElementById('div02');
+			var div01 = document.getElementById('div01');
+			div03.onclick = function(){
+				console.log(this);
+			}
+			div02.onclick = function(){
+				console.log(this);
+			}
+			div01.onclick = function(){
+				console.log(this);
+			}
+			//body标签
+			document.body.onclick = function(){
+				console.log(this);
+			}
+			//html标签
+			document.documentElement.onclick = function(){
+				console.log(this);
+			}
+			window.onclick = function(){
+				console.log(this);
+			}
+		</script>
+	</body>
+</html>

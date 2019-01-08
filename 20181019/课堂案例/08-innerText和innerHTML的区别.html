@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box">
+			
+		</div>
+		
+		<script type="text/javascript">
+			/*
+			 * innerText 设置元素的内容,会原样输出,当内容是标签的时候,会用
+			 * 特殊符号来表示
+			 * innerHTML 设置元素的内容,文本会原样输出,标签会被浏览器解析
+			 */
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			btn.onclick = function(){
+//				box.innerText = '<h1>哈哈</h1>';
+				box.innerHTML = '<h1>哈哈</h1>';
+			}
+		</script>
+	</body>
+</html>

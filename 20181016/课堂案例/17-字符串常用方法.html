@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * String对象
+			 */
+			var str = '今a天下午好a热啊下!';
+			console.log(str.charAt(2));//根据索引值返回对应的字符,参数是索引值
+			console.log(str.charCodeAt(1));//返回在指定的位置的字符的 Unicode 编码
+			console.log(str.concat('还行','!'));// .concat(字符串1,字符串2,...);返回的是拼接之后的新的字符串
+			console.log(str.indexOf('a',2));// .indexOf(要找的字符串,从某个位置开始的索引);返回的是这个字符串的索引值,没找到则返回-1
+			console.log(str.lastIndexOf('a',3)); //.lastIndexOf(要找的字符串,从某个位置开始的索引);从后向前找,但是索引仍然是从左向右的方式,找不到则返回-1
+			console.log(str.replace('下','上'));//.replace("原来的字符串","新的字符串");用来替换字符串的
+			console.log(str.slice(1,7));//.slice(开始的索引,结束的索引); 从索引的位置开始提取,到索引的前一个结束,并返回这个提取后的字符串
+			var str2='武松|西门官人|金莲|五大';
+			console.log(str.split('|'));//根据字符串切割,返回数组
+			
+			console.log(str.substr(1,6));//.substr(开始的索引,个数);返回的是截取后的新的字符串
+			console.log(str.substring(1,7));//.substring(开始的索引,结束的索引),返回截取后的字符串,不包含结束的索引的字符串
+
+			var str3 = 'AbcDefG';
+			console.log(str3.toLocaleLowerCase());//转小写
+			console.log(str3.toLocaleUpperCase());//转大写
+			var str4 = '     金牛座       ';
+			var str5 = str4.trim();//去掉字符串两端的空格
+			console.log(str5.length);
+		</script>
+	</body>
+</html>

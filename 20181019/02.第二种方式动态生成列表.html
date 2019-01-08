@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<button id="btn">生成列表</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+
+			var btn = document.getElementById('btn');
+
+			var arr = ['张学友', '刘德华', '黎明', '郭富城'];
+
+			var str = '';
+
+			var lis = document.getElementsByTagName('li');
+			//绑定鼠标点击事件
+			btn.onclick = function() {
+				//				str = str + '<li>haha1</li>'
+				//				str = str + '<li>haha2</li>'
+				//				str = str + '<li>haha3</li>'
+				//				str = str + '<li>haha4</li>'
+				str = '<ul>';
+				for(var i = 0; i < arr.length; i++) {
+					str += '<li>' + arr[i] + '</li>';
+				}
+				str += '</ul>';
+				box.innerHTML = str;
+
+				//绑定鼠标移入事件
+				for(var i = 0; i < arr.length; i++) {
+					if(i % 2 == 0) {
+						lis[i].style.backgroundColor = 'pink';
+					} else {
+						lis[i].style.backgroundColor = 'orange';
+					}
+					lis[i].setAttribute('num', i);
+					
+					lis[i].onmouseover = function() {
+						if(this.getAttribute('num') % 2 == 0) {
+							this.style.backgroundColor = 'yellow';
+						} else {
+							this.style.backgroundColor = 'green';
+						}
+//						this.style.background = 'skyblue';
+					}
+
+					lis[i].onmouseout = function() {
+						if(this.getAttribute('num') % 2 == 0) {
+							this.style.backgroundColor = 'pink';
+						} else {
+							this.style.backgroundColor = 'orange';
+						}
+
+//						this.style.background = '';
+					}
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

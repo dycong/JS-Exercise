@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 工厂模式创建对象:变向的new Object函数
+			 */
+//			  var person = new Object();
+//		      //给对象动态添加属性,给属性赋值
+//		      person.name = '周杰伦';
+//		      person.age = 40;
+//		      person.eyes = '小眼儿';
+//		      //读取对象的属性值
+//		      console.log(person.name);
+//		      person.sing = function(){
+//		      	console.log('青花瓷~');
+//		      }
+			 function createPerson(name,age,gender,song){
+			 	var p = new Object();
+			 	p.name = name;
+			 	p.age = age;
+			 	p.gender = gender;
+			 	p.sing = function(){
+			 		console.log('唱'+song);
+			 	}
+			 	return p;
+			 }
+			 var jay = createPerson('周杰伦',40,true,'双节棍');
+			 console.log(jay.age);
+			 jay.sing();
+			 var jack = createPerson('张学友',55,true,'吻别');
+			 jack.sing();
+		</script>
+	</body>
+</html>

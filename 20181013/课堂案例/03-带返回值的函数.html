@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			console.log(alert('哈哈'));
+			//			console.log(prompt('哈哈'));
+			/*
+			 * 带返回值的函数:
+			 * return 关键字,可以从函数中给函数外返回一个数据,当函数中
+			 * 出现return的时候,函数会立即跳出,不在执行return后面的代码
+			 */
+
+			/**
+			 * 返回两个数字的和
+			 * @param {第一个加数} a
+			 * @param {第二个加数} b
+			 */
+			function getSum(a, b) {
+				//var c = a+b;
+				//				console.log(c);
+				return a > b;
+			}
+			console.log(getSum(3, 2));
+
+			/**
+			 * 返回两个数的最大值
+			 * @param {第一个数} a
+			 * @param {第二个数} b
+			 */
+			function getMaxByTwo(a, b) {
+				return a > b ? a : b;
+			}
+			console.log(getMaxByTwo(10, 2));
+			
+			/**
+			 * 返回三个数的最大值
+			 * @param {Object} x
+			 * @param {Object} y
+			 * @param {Object} z
+			 */
+			function getMaxByThree(x, y, z) {
+				return x > y ? (x > z ? x : z) : (y > z ? y : z);
+			}
+			console.log(getMaxByThree(3,8,4));
+			
+			//求1-n之间所有数的和
+			function getSumByN(n){
+				//var n = 100;
+				var sum = 0;
+				for(var i =1;i<=n;i++){
+					sum+=i;
+				}
+				return sum;
+			}
+			console.log(getSumByN(1000));
+			
+			//求n-m之间所有数的和
+			/**
+			 * 
+			 * @param {Object} n
+			 * @param {Object} m
+			 */
+			function getSumByNAndM(n,m){
+				//var n = 100;
+				var sum = 0;
+				for(var i =n;i<=m;i++){
+					sum+=i;
+				}
+				return sum;
+			}
+			console.log(getSumByNAndM(5,50));
+		</script>
+	</body>
+
+</html>

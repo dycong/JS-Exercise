@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="one">我是一个盒子</div>
+		<script type="text/javascript">
+			/* 事件的执行过程:
+			 * 事件是可以被反复进行触发的,因为当浏览器没有关闭的时候,所有的代码都存活
+			 * 在内存中,我们就可以操作内存中的所有数据
+			 */
+			var num = 0;
+			var str = '哈哈';
+			var div = document.getElementById('one');
+			div.onclick = function(){
+				num++;
+				alert(num);
+			}
+			console.log('其它的代码........');
+			console.log('其它的代码........');
+			console.log('其它的代码........');
+			console.log('其它的代码........');
+		</script>
+	</body>
+</html>

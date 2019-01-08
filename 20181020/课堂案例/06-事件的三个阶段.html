@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div01{
+				width: 300px;
+				height: 300px;
+				background: red;
+			}
+			#div02{
+				width: 200px;
+				height: 200px;
+				background: green;
+			}
+			#div03{
+				width: 100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div01">div01
+			<div id="div02">div02
+				<div id="div03">div03</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 事件的三个阶段:
+			 * 1.事件冒泡阶段: 由内向外依次触发
+			 * 	  是由微软给ie定义的,认为是当触发一个元素的时候,事件是由内向外依次触发
+			 * 	 (默认的)    e.eventPhase   3
+			 * 	 
+			 * 2.事件目标阶段: 被触发的对象     e.eventPhase  2
+			 * 3.事件捕获阶段: 由外向内依次触发
+			 * 	 是由网景公司定义的,认为是当触发一个元素的时候,事件是由外向内依次触发
+			 *   e.eventPhase  1
+			 * 整个事件的过程:先是事件捕获阶段然后到事件目标阶段,在从事件目标执行冒泡阶段
+			 * ie低版本浏览器只有事件冒泡阶段
+			 * 
+			 * e对象:只有在高级浏览器中有此对象,是事件处理函数中的参数对象,当触发事件的
+			 * 时候,可以获取动作的一些先关信息,比如:鼠标在浏览器中的位置,事件的阶段,
+			 * 事件类型,触发的对象.
+			 * 在低版本浏览器中没有e对象,如果想获取一些触发的信息,可以通过window.event
+			 * 来获取.
+			 * 
+			 * 通常情况下事件捕获阶段应用的场景相对较少,事件冒泡阶段应用的场景较多,可以
+			 * 提高代码效率.
+			 * //阻止事件冒泡 高级浏览器
+				//e.stopPropagation();
+				//阻止事件冒泡 ie低版本
+				window.event.cancelBubble =true;
+			 */
+			
+			var div03 = document.getElementById('div03');
+			var div02 = document.getElementById('div02');
+			var div01 = document.getElementById('div01');
+			div03.onclick = function(e){
+				console.log(this);
+//				console.log(e.eventPhase);
+				
+				//阻止事件冒泡 高级浏览器
+				//e.stopPropagation();
+				//阻止事件冒泡 ie低版本
+				window.event.cancelBubble =true;
+			}
+			div02.onclick = function(e){
+				console.log(this);
+//				console.log(e.eventPhase);
+				
+			}
+			div01.onclick = function(e){
+				console.log(this);
+//				console.log(e.eventPhase);
+				
+			}
+			
+//			div03.addEventListener('click',function(e){
+//				console.log(this);
+//				console.log(e.eventPhase);
+//			},true);
+//			div02.addEventListener('click',function(e){
+//				console.log(this);
+//				console.log(e.eventPhase);
+//			},true);
+//			div01.addEventListener('click',function(e){
+//				console.log(this);
+//				console.log(e.eventPhase);
+//			},true);
+			
+//			div03.attachEvent('onclick',function(){
+////				console.log(e.eventPhase);
+//				console.log(window.event);
+//			})
+//			div03.onclick =function(e){
+//				
+////				console.log(window.event);
+//			}
+		</script>
+	</body>
+</html>

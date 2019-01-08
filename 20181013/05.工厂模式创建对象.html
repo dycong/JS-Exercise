@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function createPerson (name,age,gender,song){
+				var p = new Object();
+				p.name = name;
+				p.age = age;
+				p.gender = gender;
+				p.sing = function (){
+					console.log(song);
+				}
+				return p;
+			}
+			
+			var jay = createPerson('周杰伦',39,'singer','晴天');
+			console.log(jay);
+			jay.sing();
+			var jack = createPerson('张学友',55,'singer and actor','遥远的她');
+			console.log(jack);
+			jack.sing();
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.current {
+				background-color: yellow !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+		</ul>
+		<script type="text/javascript">
+			/*
+						 * 默认在标签中写死的自定义属性是不能通过对象.属性的方式来读取的
+						 * 用对象.属性 动态设置的自定义属性是可以用对象.属性的方式来读取的
+						 * 通用方法,可以从调试中看到的两个属性setAttribute('属性名','属性值');
+						 * 								 getAttribute('属性名');
+				
+						 */
+			var lis = document.getElementsByTagName('li');
+			for(var i = 0; i < lis.length; i++) {
+
+				//默认奇数和偶数行颜色
+				if(i % 2 == 0) {
+					lis[i].style.background = 'pink';
+				} else {
+					lis[i].style.background = 'gray';
+				}
+
+				//				lis[i].num = i;
+				//在遍历每一个li的时候,就给li对象动态的添加num属性,把i存进去
+				lis[i].setAttribute('num', i);
+				//循环绑定鼠标移入事件
+				lis[i].onmouseover = function() {
+					//this.style.background = 'yellow';
+					//this.className = 'current';
+					//判断移入的对象的编号是否是偶数
+					if(this.getAttribute('num') % 2 == 0) {
+						this.style.backgroundColor = 'yellow';
+					} else {
+						this.style.backgroundColor = 'blue';
+					}
+
+				}
+				//循环绑定鼠标移出事件
+				lis[i].onmouseout = function() {
+					//this.style.background = ''
+					//this.className = '';
+					if(this.getAttribute('num') % 2 == 0) {
+						this.style.backgroundColor = 'pink';
+					} else {
+						this.style.backgroundColor = 'gray';
+					}
+
+				}
+			}
+		</script>
+	</body>
+
+</html>

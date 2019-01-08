@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			(function() {
+				//创建地图的构造函数
+				function Maps(width, height, bgColor) {
+					this.width = width;
+					this.height = height;
+					this.bgColor = bgColor;
+				}
+				//创建地图原型函数
+				Maps.prototype.init = function() {
+					//创建div元素
+					var divMap = document.createElement('div');
+					//设置div的三属性
+					divMap.style.width = this.width + 'px';
+					divMap.style.height = this.height + 'px';
+					divMap.style.backgroundColor = this.bgColor;
+					divMap.id = 'divMap';
+					//开启相对定位
+					divMap.style.position = 'relative';
+					//将div添加到body中
+					document.body.appendChild(divMap);
+				}
+				window.Maps = Maps;
+			}());
+
+			//创建食物构造函数
+			(function() {
+				function Food(width, height, bgColor) {
+					this.width = width;
+					this.height = height;
+					this.bgColor = bgColor;
+					this.x = 0; //横坐标
+					this.y = 0; //纵坐标
+				}
+				Food.prototype.init = function() {
+					//创建div元素
+					var divFood = document.createElement('div');
+					//设置div CSS属性
+					divFood.style.width = this.width + 'px';
+					divFood.style.height = this.height + 'px';
+					divFood.style.backgroundColor = this.bgColor;
+					//获取地图的id名
+					var divMap = document.getElementById('divMap');
+					//Food的座标，随机生成x,y的值
+					//地图的宽度/食物的宽度 = 格数
+					this.x = parseInt(Math.random() * (divMap.offsetWidth / this.width));
+					this.y = parseInt(Math.random() * (divMap.offsetHeight / this.height));
+					//开启绝对定位
+					divFood.style.position = 'absolute';
+					//设置横坐标
+					divFood.style.left = this.x * this.width + 'px';
+					//设置纵坐标
+					divFood.style.top = this.y * this.height + 'px';
+					//将divFood添加到divMap中
+					divMap.appendChild(divFood);
+				}
+				window.Food = Food;
+			}());
+			
+			//创建蛇身构造函数
+			(function(){
+				function Snake(width,height,dir){
+					//设置蛇身的宽度，长度，和方向
+					this.width = width;
+					this.height = height;
+					this.dir = dir
+					//设置3部分蛇身坐标值和背景色
+					this.snBody = [{
+						x:3,
+						y:2,
+						bgColor:'red'
+					},{
+						x:2,
+						y:2,
+						bgColor:'orange'
+					},{
+						x:1,
+						y:2,
+						bgColor:'orange'
+					}]
+				}
+				Snake.prototype.init = function(){
+					//循环创建3个div
+					for (var i = 0; i < this.snBody.length; i++) {
+						var snDiv = document.createElement('div');
+						snDiv.style.width = this.width + 'px';
+						snDiv.style.height = this.height + 'px';
+						snDiv.style.background = this.snBody[i].bgColor;
+						snDiv.style.position = 'absolute';
+						snDiv.style.left = this.snBody[i].x * this.width + 'px';
+						snDiv.style.top = this.snBody[i].y * this.height + 'px';
+						
+						var divMap = document.getElementById('divMap');
+						divMap.appendChild(snDiv);
+					}
+				}
+				window.Snake = Snake;
+			}());
+			
+			//实例化地图对象
+			var maps = new Maps(800, 600, '#ccc');
+			//调用对象的init方法
+			maps.init();
+			//实例化食物对象
+			var foods = new Food(20, 20, 'blue');
+			foods.init();
+			//实例化蛇身
+			var snake = new Snake(20,20,'left');
+			snake.init();
+		</script>
+	</body>
+
+</html>

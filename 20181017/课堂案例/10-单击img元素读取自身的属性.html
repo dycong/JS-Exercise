@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<img src="images/111.jpg" alt="" width="100" />
+		<img src="images/222.jpg" alt="" width="200" />
+		<img src="images/333.jpg" alt="" width="300" />
+		<script type="text/javascript">
+			var imgs = document.getElementsByTagName('img');
+
+			/*
+			 * 当程序从上向下执行到for循环的时候,是一瞬间生成的三段代码,此时由于
+			 * 循环中的i已经自加到3,跳出循环,所以i变量在内存中是死值3,单击的动作
+			 * 是在代码已经生成后的操作,所以每段代码中的imgs[i].width,都
+			 * 是imgs[3].width,所以会报错
+			 * this指向的是事件源
+			 */
+			
+//			img[0].a = 0;
+//			imgs[0].onclick = function() {
+//				alert(imgs[3].width);
+//			}
+
+//			img[1].a = 1;
+//			imgs[1].onclick = function() {
+//				alert(imgs[3].width);
+//			}
+
+
+//			img[2].a = 2;
+//			imgs[2].onclick = function() {
+//				alert(imgs[3].width);
+//			}
+			
+			//批量给元素绑定事件
+			for(var i = 0; i < imgs.length; i++) {
+				//在循环的时候,动态的给每一个对象添加一个a的属性,并把当前循环中的i的值
+				//保存起来
+				imgs[i].index = i;
+				imgs[i].onclick = function() {
+					//this指向的是事件源
+					console.log(this.index);
+					console.log(this.width);
+//					alert('哈哈');
+					//alert(i);//3
+				}
+			}
+			
+//			for(var j = 0;j<3;j++){
+//				
+//			}
+//			alert(j);
+			console.log('后面的代码');
+		</script>
+	</body>
+
+</html>

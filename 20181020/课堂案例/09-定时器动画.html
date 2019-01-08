@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left:0;
+				top:200px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			var timer = 0;
+			var num = 0;
+			btn.onclick = function(){
+				
+				timer = setInterval(function(){
+					num+=3;
+					box.style.left = num + 'px';
+				},30);
+				
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>哈哈</button>
+		<button>哈哈</button>
+		<button>哈哈</button>
+		<button>哈哈</button>
+		<button>哈哈</button>
+		<button>哈哈</button>
+		<button>哈哈</button>
+		<script type="text/javascript">
+			/*
+			 * 当触发某个对象的时候,先让所有的兄弟恢复默认状态,再让自己变成
+			 * 某个效果
+			 */
+			//给所有button注册事件
+			var btns = document.getElementsByTagName('button');
+			for (var i = 0; i < btns.length; i++) {
+				btns[i].onclick = function(){
+					//遍历让每个元素设置成哈哈
+					for(var j =0;j<btns.length;j++){
+						btns[j].innerText = '哈哈';
+					}
+					
+					//自己(事件源对象)变成汉庭
+					this.innerText = '汉庭';
+				}
+			}
+		</script>
+	</body>
+</html>

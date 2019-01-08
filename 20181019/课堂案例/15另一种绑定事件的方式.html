@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<button id="btn2">按钮2</button>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+		<script type="text/javascript">
+			/*
+			 * 对象.on事件的方式不能注册多个事件,后写会覆盖先写的
+			 * 
+			 * 对象.addEventListener('不带on的事件类型',执行的函数,明天讲(布尔值)) 只能
+			 * 高级浏览器使用
+			 * 
+			 * 对象.attachEvent('带on的事件类型',执行的函数) 高级浏览器不能使用,
+			 * ie10及以下都能使用,当给同一个对象注册相同的事件,多个的时候ie8及以下是
+			 * 反向执行
+			 * 
+			 * 
+			 */
+		//	var btn = document.getElementById('btn');
+			var btn = $ById('btn');
+			var btn2 =$ById('btn2');
+			var lis = $ByTag('li');
+//			console.log(lis);
+			
+			function $ById(ele){
+				return document.getElementById(ele);
+			}
+			
+			function $ByTag(ele){
+				return document.getElementsByTagName(ele);
+			}
+			
+			btn2.onclick = function(){
+				alert('haha');
+			}
+			
+//			btn.onclick = function(){
+//				alert(1);
+//			}
+//			btn.onclick = function(){
+//				alert(2);
+//			}
+			//高级浏览器
+//			btn.addEventListener('click',function(){
+//				alert(1);
+//			},false);
+//			btn.addEventListener('click',function(){
+//				alert(2);
+//			},false);
+//			
+
+//			btn.attachEvent('onclick',function(){
+//				alert(1);
+//			});
+//			btn.attachEvent('onclick',function(){
+//				alert(2);
+//			});
+//			function fn(){
+//				alert(1);
+//			}
+			addEvent(btn,'click',function(){
+				alert('丁一聪');
+			},false);
+			addEvent(btn,'click',function(){
+				alert('丁一聪聪聪聪');
+			},false);
+
+			/**
+			 * 兼容性封装添加监听事件
+			 * @param {元素对象} obj
+			 * @param {事件类型} type
+			 * @param {执行的函数体} fn
+			 * @param {没学呢} bool
+			 */
+			function addEvent(obj,type,fn,bool){
+				if(obj.addEventListener){
+					obj.addEventListener(type,fn,bool);
+				}else{
+					obj.attachEvent('on'+type,fn);
+				}
+			}
+			
+		
+		</script>
+	</body>
+</html>

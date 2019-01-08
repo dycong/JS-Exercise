@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/**
+			 * 
+			 * @param {第一个参数} x
+			 * @param {第二个参数} y
+			 * @param {第三个参数} z
+			 */----------------------------------------------------------------------
+			function maxBy3(x, y, z) {
+				return x > y ? (x > z ? x : z) : (y > z ? y : z);
+			}
+			console.log(maxBy3(3, 7, 50));
+
+			/**
+			 * 从1加到n
+			 * @param {第一个参数} n
+			 */
+			function getSumByN(n) {
+				var sum = 0;
+				for(var i = 1; i <= n; i++) {
+					sum += i;
+				}
+				return sum;
+			}
+			console.log(getSumByN(100));
+
+			/**
+			 * 从n加到m
+			 * @param {第一个参数} n
+			 * @param {第二个参数} m
+			 */
+			function getSumByNm(n, m) {
+				var sum = 0;
+				for(var i = n; i <= m; i++) {
+					sum += i;
+				}
+				return sum;
+			}
+			console.log(getSumByNm(56, 100));
+		</script>
+	</body>
+
+</html>

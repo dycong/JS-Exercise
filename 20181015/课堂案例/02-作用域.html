@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 作用域:指的是变量的访问(读取和修改)区域
+			 * 
+			 * 全局作用域:
+			 * 指的是script标签内,所有在全局作用域下定义的变量和方法都是window
+			 * 对象下的属性和方法
+			 * 
+			 * 函数作用域:在函数中,定义的变量是函数体内的私有变量,不能从外界访问
+			 * 
+			 * js中没有块级作用域的概念
+			 * 
+			 * 浏览器顶级对象: window
+			 * 
+			 * 定义变量的两种方式:
+			 * 带var定义变量,会被js预先解析,将变量的声明提升到当前作用域的最顶端
+			 * 
+			 * 不带var定义变量,如果不报错,必须是声明+赋值,不建议此操作
+			 * 
+			 * 定义函数名的方式定义的函数,也会提升到当前作用域的顶端
+			 * 函数表达式的方式还是给变量赋值,赋值的是一个函数体的数据
+			 * 
+			 * 两种方式都是window下的属性,由于js是一门动态语言,支持动态的给
+			 * 对象添加属性和方法,所以对象.属性名是不会报错的
+			 * 
+			 * 变量名和函数名相同:
+			 * 无论是定义函数名的方式还是函数表达式的方式,都是把函数体赋值给这个变量,
+			 * 只不过定义函数名的方式会提升到当前作用域的顶端
+			 */
+
+			//			var a = '哈哈';
+			//			console.log(window.a);
+			////			window.alert('呵呵');
+			////			window.prompt('我名花有主了');
+			//			//write('我是document下的方法');
+			//			function say(){
+			//				console.log('说话');
+			//				
+			//			}
+			//window.say();
+			//a = '哈哈';
+			//			var a;
+			//console.log(a);
+//						var a;
+//						console.log(a);
+//						 a = '啊哈哈';
+//						console.log(a);
+//						var a;
+//						a=1;
+//						console.log(window.a);//1
+			//			a = '呵呵';
+			//			console.log(a);//呵呵
+			//			console.log(window.a);
+			//			 a = 1;
+			//			console.log(window.a);
+//						console.log(name = '老刘');
+//						console.log(name);
+			//          window.a
+			//          console.log('哈哈');
+//						function sum(){
+//							console.log('我是函数');
+//						}
+//						console.log(sum);
+//						sum();
+//						var sum;
+//						sum();
+//					    sum = function(){
+//							console.log('我是函数表达式的方式');
+//						}
+//					    console.log(sum);
+//					    sum();
+//
+//						if(true){
+//							var a = 1;
+//						}
+//			console.log(a);
+//						for(var i = 0;i<5;i++){
+//							var a = '哈哈';
+//						}
+//						console.log(a);
+//						var c = '哈哈';
+//						var a = 5;
+//						function sum(){
+//							var a = 1;
+//							var b = 2;
+//							alert(a);
+//
+//						}
+//						sum();
+//						console.log(a=5);
+//						console.log(window.a);
+//						console.log(sum());
+//				sum();
+
+			//		    var c = '哈哈';
+//						var a = 5;
+//						function sum(){
+//							var a;
+//							alert(a);
+//							a = 1;
+//							 alert(a);
+//						
+//						}
+//						sum();
+
+			//			var c = '哈哈';
+//						var a = 5;
+//			
+//						function sum() {
+//							var a;
+//							console.log(a);//undefined
+//						    a = 1;
+//					
+//						}
+//						sum();
+//						console.log(a);//5
+
+//						var c = '哈哈';
+//						var a = 5;
+//			
+//						function sum(a) {
+//							// var a = 10;
+//							console.log(a);//10
+//						    a = 1;
+//							console.log(a);//1
+//						}
+//						sum(10);
+//						console.log(a);//5
+
+			//
+			//			var c = '哈哈';
+			//			
+			//			
+			//			
+			//			
+//						function sum() {
+//							//var a = 10;
+//							a = 1;
+//							console.log(a);//1
+//					
+//						}
+//						sum(10);
+//						a = 5;
+//						console.log(a); //5
+//
+//						function sum(a) {
+//							//var a = 10;
+//							a = 1;
+//							window.a = 6;
+//							console.log(a);//1
+//								
+//						}
+//						a = 5;//window.a
+//						sum(10);
+//						console.log(a); //6
+			//
+//					var a = 1;
+//					function fn(){
+//						console.log(a);//1
+//					}
+//					fn();
+			var a;
+			function fn(a) {
+				//var a ;
+				a = 2;
+				console.log(window.a);//undefined    1?
+			}
+			a = 1;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+			fn();
+			console.log(a);//1
+		</script>
+	</body>
+
+</html>

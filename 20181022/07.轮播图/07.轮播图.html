@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.box {
+				width: 900px;
+				height: 350px;
+				margin: 100px auto;
+				/*				overflow: hidden;*/
+				position: relative;
+			}
+			
+			.box img {
+				display: block;
+			}
+			
+			.box ul {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 4500px;
+			}
+			
+			.box ol {
+				position: absolute;
+				bottom: 10px;
+				right: 10px;
+			}
+			
+			.box li {
+				float: left;
+			}
+			
+			.box ol li {
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+				border: 1px solid #fff;
+				border-radius: 50%;
+				text-align: center;
+				background: #333;
+				cursor: pointer;
+				color: #999;
+				margin-left: 10px;
+			}
+			
+			.box ol li.current {
+				border-color: #f60;
+				color: #f60;
+			}
+			
+			.leftBtn {
+				width: 40px;
+				height: 100px;
+				background: url(img/index.png) 0 0;
+				position: absolute;
+				top: 50%;
+				margin-top: -50px;
+				left: 0;
+			}
+			
+			.rightBtn {
+				width: 40px;
+				height: 100px;
+				background: url(img/index.png) -50px 0;
+				position: absolute;
+				top: 50%;
+				margin-top: -50px;
+				right: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<ul class="ulList" id="ulList">
+				<li>
+					<img src=" img/01.jpg" height="350" width="900" />
+				</li>
+				<li>
+					<img src=" img/02.jpg" height="350" width="900" />
+				</li>
+				<li>
+					<img src=" img/03.jpg" height="350" width="900" />
+				</li>
+				<li>
+					<img src=" img/04.jpg" height="350" width="900" />
+				</li>
+				<li>
+					<img src=" img/05.jpg" height="350" width="900" />
+				</li>
+			</ul>
+			<ol id="olList">
+				<li class="current">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+			<a href="##" class="leftBtn" id="leftBtn"></a>
+			<a href="##" class="rightBtn" id="rightBtn"></a>
+		</div>
+		<script type="text/javascript">
+			var box = document.getElementById('box')
+			//获取所有小圆点
+			var olList = document.getElementById('olList');
+			//获取ul元素
+			var ulList = document.getElementById('ulList');
+			//获取右按钮
+			var rightBtn = document.getElementById('rightBtn');
+			//获取左按钮
+			var leftBtn = document.getElementById('leftBtn');
+			//计数器
+			var num = 0;
+			//单击右按钮
+			rightBtn.onclick = function() {
+				//每单击一次右按钮，num自增1
+				num++;
+				//极值判断
+				if(num > 4) {
+					num = 0;
+				}
+				//1.切换小圆点
+				//排它 小圆点
+				for(var i = 0; i < olList.children.length; i++) {
+					olList.children[i].className = '';
+				}
+				olList.children[num].className = 'current';
+				//2.让ul用动画的形式移动到对应编号的图片
+				//ulList.style.left = '-900px';				
+				animate(ulList, num * (-900))
+			}
+			//左按钮
+			leftBtn.onclick = function() {
+				//每单击一次右按钮，num自增1
+				num--;
+				//极值判断
+				if(num < 0) {
+					num = 4;
+				}
+				//1.切换小圆点
+				//排它 小圆点
+				for(var i = 0; i < olList.children.length; i++) {
+					olList.children[i].className = '';
+				}
+				olList.children[num].className = 'current';
+				//2.让ul用动画的形式移动到对应编号的图片
+				//ulList.style.left = '-900px';				
+				animate(ulList, num * (-900))
+			}
+			
+			for (var i = 0; i < olList.children.length; i++) {
+				olList.children[i].setAttribute('index',i);
+				olList.children[i].onclick = function(){
+					//1.排它所有的小圆点，干掉current类名
+					for (var i = 0; i < olList.children.length; i++) {
+						olList.children[i].className = '';
+					}
+					//点谁谁有current样式
+					this.className = 'current';
+					
+					//2.ul移动到对应小圆点索引的那张图的位置
+					var move = this.getAttribute('index') * -900;
+					animate(ulList,move);
+					
+					//3者同步计数器
+					num = this.getAttribute('index');
+				}				
+			}
+
+			function animate(obj, target) {
+				//offsetLeft(只读属性) 获取元素对象的left属性值，不带单位的数值型
+				//给obj对象动态添加timer，存定时器
+				clearInterval(obj.timer);
+				obj.timer = setInterval(function() {
+					//每次的步数
+					var step = 20;
+					var current = obj.offsetLeft;
+					step = current < target ? step : -step;
+					//每次用当前的值+步数再赋值给自己
+					current = current + step;
+					//因为无论目标值大于当前值，还是目标值小于当前值
+					//距离始终是个正数
+					if(Math.abs(target - current) > Math.abs(step)) {
+						obj.style.left = current + 'px';
+					} else {
+						obj.style.left = target + 'px';
+						clearInterval(obj.timer);
+					}
+				}, 1);
+			}
+		</script>
+	</body>
+
+</html>
+=

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<button id="btn">添加li</button>
+		<ul id="list">
+			<li>
+				<a href="##">删除</a>
+			</li>
+			<li>
+				<a href="##">删除</a>
+			</li>
+			<li>
+				<a href="##">删除</a>
+			</li>
+			<li>
+				<a href="##">删除</a>
+				<p>我是段落</p>
+			</li>
+		</ul>
+		<script type="text/javascript">
+			/*
+			 * 事件委派(委托): 利用事件冒泡的原理,给父元素绑定事件,通过触发子元素,会冒泡
+			 * 到父元素的原理. 
+			 * 触发的对象是通过父元素中的e.target事件目标来找到被触发对象
+			 * ie低版本:window.event.srcElement
+			 */
+			var list = document.getElementById('list');
+			var a = list.getElementsByTagName('a');
+			var btn = document.getElementById('btn');
+			
+			btn.onclick = function(){
+				var li = document.createElement('li');
+				var a = document.createElement('a');
+				a.href = '##';
+				a.innerText = '删除';
+				li.appendChild(a);
+				list.appendChild(li);
+			}
+			//给ul绑定事件
+			list.onclick = function(e){
+				var li = e.target.parentElement;
+				console.log(e.target);
+				//我单击的对象必须是a,判断节点名
+				if(e.target.nodeName == 'A'){
+					
+					list.removeChild(li);
+				}
+			}
+			
+//			list.onclick = function(){
+//				//ie低版本 window.event.srcElement 和e.target
+//				console.log(window.event.srcElement.parentElement);
+//			}
+			
+			
+//			for(var i = 0; i < a.length; i++) {
+//				a[i].onclick = function() {
+////					alert(1);	
+//					list.removeChild(this.parentElement);
+//				}
+//			}
+		</script>
+	</body>
+
+</html>

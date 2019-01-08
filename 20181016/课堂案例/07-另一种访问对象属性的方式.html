@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var p = {
+				name:'林俊杰',
+				age:37,
+				sing:function(){
+					console.log('美人鱼');
+				}
+			}
+			
+//			p.name = '老刘';
+//			console.log(p);
+			console.log(p["name"] = '小明');
+//			console.log()
+			p["sing"] = function(){
+				console.log('一千年以后');
+			};
+			console.log(p["sing"]);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box {
+				width: 310px;
+				height: 200px;
+				/*background: pink;*/
+				margin: 100px auto 0;
+			}
+			
+			.addDataBtn {
+				width: 100px;
+				height: 30px;
+			}
+			
+			.box table {
+				width: 300px;
+				/*1px 边框*/
+				border-collapse: collapse;
+				border: 1px solid #ccc;
+			}
+			
+			.box table td {
+				border: 1px solid #ccc;
+				text-align: center;
+				padding: 5px 0;
+			}
+			
+			.box table th {
+				border: 1px solid #ccc;
+				padding: 5px 0;
+				background: #09c;
+				color: #fff;
+			}
+			
+			.meng {
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, .5);
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: none;
+			}
+			
+			.dui {
+				width: 430px;
+				height: 250px;
+				background: #fff;
+				position: absolute;
+				left: 50%;
+				margin-left: -215px;
+				top: 50%;
+				margin-top: -125px;
+				/*display: none;*/
+				display: none;
+			}
+			
+			.dui h2 {
+				background: #eee;
+				font-size: 20px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+			}
+			
+			.dui input {
+				width: 300px;
+				height: 30px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+			}
+			
+			.dui .content {
+				padding: 15px 0 0 20px;
+			}
+			
+			.dui .finish {
+				width: 100px;
+				height: 30px;
+				text-align: center;
+				display: block;
+				margin: 20px auto 0;
+			}
+			
+			.dui .close {
+				position: absolute;
+				right: 2px;
+				top: 2px;
+				font-weight: 700;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box">
+			<button class="addDataBtn" id="addDataBtn">添加数据</button>
+			<table cellspacing="0">
+				<thead>
+					<tr>
+						<th>电影名称</th>
+						<th>领衔主演</th>
+						<th>已看过</th>
+					</tr>
+
+				</thead>
+				<tbody id="tMain">
+					<tr>
+						<td>西红市首富</td>
+						<td>沈腾</td>
+						<td>
+							<a href="##">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td>无双</td>
+						<td>周润发</td>
+						<td>
+							<a href="##">删除</a>
+						</td>
+					</tr>
+					<tr>
+						<td>巨齿鲨</td>
+						<td>李冰冰</td>
+						<td>
+							<a href="##">删除</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="meng" id="meng"></div>
+		<div class="dui" id="dui">
+			<span class="close" id="close">X</span>
+			<h2>添加数据</h2>
+			<div class="content">
+				<label for="txt1">电影名称</label>
+				<!--placeholder css3中的属性  提示文本-->
+				<input type="text" id="txt1" placeholder="请输入电影名称" /><br/>
+			</div>
+			<div class="content">
+				<label for="txt2">领衔主演</label>
+				<input type="text" id="txt2" value="仓井空" />
+			</div>
+			<button class="finish" id="finishBtn">完成</button>
+		</div>
+		<script type="text/javascript">
+			//获取添加数据按钮
+			var addDataBtn = document.getElementById('addDataBtn');
+			//获取蒙板
+			var meng = document.getElementById('meng');
+			//获取对话框
+			var dui = document.getElementById('dui');
+			//获取完成按钮
+			var finishBtn = document.getElementById('finishBtn');
+			//表格主体
+			var tMain = document.getElementById('tMain');
+			//获取txt1
+			var txt1 = document.getElementById('txt1');
+			//获取txt2
+			var txt2 = document.getElementById('txt2');
+			//获取关闭按钮
+			var close = document.getElementById('close');
+			console.log(tMain.children);
+			//tMain.children  所有的tr  数组
+			for(var i = 0; i < tMain.children.length; i++) {
+				var tr = tMain.children[i];
+				//获取每一行的,后代a
+				var a = tr.getElementsByTagName('a')[0];
+				//				console.log(a);
+				a.onclick = function() {
+					//获取tr
+					console.log(this.parentElement.parentElement);
+					//站在父元素的角度去删除子元素
+					tMain.removeChild(this.parentElement.parentElement);
+				}
+			}
+
+			//给添加数据绑定事件
+			addDataBtn.onclick = function() {
+				//让蒙板和对画框显示
+				meng.style.display = 'block';
+				dui.style.display = 'block';
+			}
+
+			//给完成按钮绑定事件
+			finishBtn.onclick = function() {
+				//trim() 去掉字符串两端的空格,避免用户输入没必要的空格
+				var input01 = txt1.value.trim();
+				var input02 = txt2.value.trim();
+				//进入if条件的说明插入成功
+				if(input01 != '' && input02 != '') {
+					//让蒙板和对画框隐藏
+					meng.style.display = 'none';
+					dui.style.display = 'none';
+
+					//分别获取txt1和txt2的value值
+					console.log(txt1.value);
+					console.log(txt2.value);
+
+					//创建tr td a
+					//创建一行tr
+					var tr = document.createElement('tr');
+					//添加到表主体中
+					tMain.appendChild(tr);
+
+					//循环创建3个td
+					for(var i = 0; i < 3; i++) {
+
+						//每创建1个td
+						var td = document.createElement('td');
+						//添加到tr中
+						tr.appendChild(td);
+						//第一个td
+						if(i == 0) {
+							td.innerText = txt1.value;
+						}
+						//第二个td
+						if(i == 1) {
+							td.innerText = txt2.value;
+						}
+						//第三个td
+						if(i == 2) {
+							var a = document.createElement('a');
+							td.appendChild(a);
+							a.innerText = '删除';
+							a.setAttribute('href', '##');
+							//给新添加的元素绑定事件
+							a.onclick = function() {
+								tMain.removeChild(this.parentElement.parentElement);
+							}
+						}
+					}
+					//清空文本框内容
+					txt1.value = '';
+					txt2.value = '苍井空';
+				} else {
+					alert('电影名称和领衔主演都不能为空');
+				}
+			}
+			//关闭按钮
+			close.onclick = function(){
+				//让蒙板和对画框显示
+				meng.style.display = 'none';
+				dui.style.display = 'none';
+			}
+		</script>
+	</body>
+
+</html>

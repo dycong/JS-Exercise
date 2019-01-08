@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person(name){
+				this.name = name;
+//				this.sing = function(){
+//					console.log('实例对象中的方法');
+//				}
+			}
+			var jay = new Person('周杰伦');
+			var jj = new Person('林俊杰');
+			Person.prototype.sing = function(){
+					console.log('原型对象中的方法');
+			}
+//			Object.prototype.sing = function(){
+//				console.log('object原型对象中的方法');
+//			}
+			console.log(jay);
+			console.dir(Person);
+			console.log(jay.sing == jj.sing);
+			
+			
+		</script>
+	</body>
+</html>

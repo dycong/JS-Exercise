@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">加载列表</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var arr = ['周杰伦','刘若英','蔡依林','林宥嘉','薛之谦'];
+			var btn = document.getElementById('btn');
+			var box = document.getElementById('box');
+			btn.onclick = function(){
+				var ul = document.createElement('ul');
+				ul.setAttribute('id','list');
+				box.appendChild(ul);
+				//创建li添加到dom
+				for (var i = 0; i < arr.length; i++) {
+					var li = document.createElement('li');
+					li.innerText = arr[i];
+					//动态添加属性存编号
+					li.setAttribute('num',i);
+					ul.appendChild(li);
+				}
+				//给每个li绑定鼠标移入移出事件
+				for(var i = 0;i<ul.children.length;i++){
+					ul.children[i].onmouseover = function(){
+						if(this.getAttribute('num') % 2 == 0){
+							this.style.backgroundColor = 'pink';
+							
+						}else{
+							this.style.backgroundColor = 'yellow';
+						}
+					}
+					ul.children[i].onmouseout = function(){
+						this.style.backgroundColor = '';
+					}
+					
+				}
+			}
+		</script>
+	</body>
+</html>

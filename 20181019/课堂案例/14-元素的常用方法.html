@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+		<script type="text/javascript">
+			var list = document.getElementById('list');
+			var li07 = document.createElement('li');
+			li07.innerText = '7';
+			//插入到某个子节点的前面 参数1:新节点   参数2:目标节点
+			//list.insertBefore(li07,list.firstElementChild);
+			//替换节点  参数1:新节点   参数2:老节点
+			//list.replaceChild(li07,list.firstElementChild);
+			//删除节点  参数:被删除的节点
+			list.removeChild(list.firstElementChild);
+		</script>
+	</body>
+</html>

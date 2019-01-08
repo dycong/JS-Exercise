@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			function sum(a,b){
+			//				return a+b;
+			//			}
+
+			//			var sum = function(a,b){
+			//				return a+b;
+			//			}
+			//console.log(sum(1,2));
+
+			//			(function(a,b){
+			//				console.log(1);
+			//			})();
+
+			var p = new Object();
+			p.name = '小明';
+			p.age = 18;
+			p.say = function() {
+				console.log('我的老婆韩梅梅去哪了');
+			}
+
+			console.log(p.name);
+			p.say();
+
+			function createPerson(name, age) {
+				var p = new Object();
+				p.name = name;
+				p.age = age;
+				p.say = function() {
+					console.log('我的老婆韩梅梅去哪了');
+				}
+				return p;
+			}
+			var hanmeimei = createPerson('韩梅梅',20);
+			console.log(hanmeimei);
+			
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+				this.sing = function(){
+					console.log('唱歌');
+				}
+			}
+			var jay = new Person('周董',40);
+			console.log(jay.gender);
+		</script>
+	</body>
+
+</html>

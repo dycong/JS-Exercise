@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="alert('第一种方式');">按钮</button>
+		<!--我们可以理解为""是一个匿名函数,在匿名函数中调用fn()-->
+		<!--在给标签的属性注册一个函数的调用-->
+		<button onclick="fn()">按钮</button>
+		<button id="btn3">按钮</button>
+		<script>
+			/*
+			 * document.getElementById('id名');通过元素的id名从网页中获取该标签对象
+			 * 
+			 * 事件三要素:
+			 * 事件源:被作用的物体  (对象,标签)
+			 * 事件类型:  单击  双击 移入  移出    (暂时理解为用户的行为),给事件源注册一个事件
+			 * 			给事件源添加一个事件监听或者叫绑定一个事件
+			 * 执行的命令:事件处理函数
+			 * 
+			 * 事件源.事件类型 = 事件处理函数;
+			 * 
+			 */
+			function fn(){
+				alert('第二种方式');
+			}
+			function fn2(){
+				alert('第三种方式');
+			}
+			var btn = document.getElementById('btn3');
+//			console.log(btn.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__.__proto__);
+
+			//btn.onclick = fn2;
+			//事件处理函数的函数体
+			btn.onclick = function(){
+				alert('第三种方式');
+			};
+		</script>
+	</body>
+</html>
